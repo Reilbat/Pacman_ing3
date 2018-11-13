@@ -56,7 +56,7 @@ int position_alea_diam(int tab[10])
 ///
 
 
-void displaytab(char tab[][50], int pos_xpcman, int pos_ypcman,int tab_diam[])
+void displaytab(char tab[][50], int pos_xpcman, int pos_ypcman,int tab_diam[], int viejoueur, int score)
 {
     printf("Partie en cours \n \n");
 
@@ -79,13 +79,14 @@ void displaytab(char tab[][50], int pos_xpcman, int pos_ypcman,int tab_diam[])
         }
         printf("\n");
     }
+    printf("\n  Vie restante : %d        Score : %d       ", viejoueur, score);
 
 }
 
 
 
 
-void deplacement (char tab[][50], int pos_xpcman, int pos_ypcman, int tab_diam[])
+void deplacement (char tab[][50], int pos_xpcman, int pos_ypcman, int tab_diam[], int viejoueur, int score)
 
 {
   int d = rand()%4;
@@ -95,25 +96,25 @@ void deplacement (char tab[][50], int pos_xpcman, int pos_ypcman, int tab_diam[]
 				if((pos_xpcman<20)&&(pos_xpcman>1)){pos_xpcman=pos_xpcman-1;}
                 sleep(900);
 				system("cls");
-				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam);}}
+				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam, viejoueur, score);}}
   if(d==1){while(!kbhit()){
 				printf("droite");
 				pos_ypcman=pos_ypcman+1;
 				sleep(900);
 				system("cls");
-				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam);}}
+				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam, viejoueur, score);}}
   if(d==2){ while(!kbhit()){
 				printf("bas");
 				pos_xpcman=pos_xpcman+1;
 				sleep(900);
 				system("cls");
-				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam);}}
+				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam, viejoueur, score);}}
   if(d==3){ while(!kbhit()){
 				printf("gauche");
 				pos_ypcman=pos_ypcman-1;
 				sleep(900);
 				system("cls");
-				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam);}}
+				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam, viejoueur, score);}}
 
 printf("d = %d", d);
   while(1)
@@ -126,7 +127,7 @@ printf("d = %d", d);
 				pos_xpcman=pos_xpcman-1;
                 sleep(500);
 				system("cls");
-				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam);}
+				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam, viejoueur, score);}
 
     }
 
@@ -136,7 +137,7 @@ printf("d = %d", d);
 				pos_ypcman=pos_ypcman+1;
 				sleep(500);
 				system("cls");
-				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam);}
+				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam, viejoueur, score);}
     }
 
 
@@ -146,7 +147,7 @@ printf("d = %d", d);
 				pos_xpcman=pos_xpcman+1;
 				sleep(500);
 				system("cls");
-				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam);}
+				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam, viejoueur, score);}
     }
 
      else if(c==75){///GAUCHE
@@ -155,7 +156,7 @@ printf("d = %d", d);
 				pos_ypcman=pos_ypcman-1;
 				sleep(500);
 				system("cls");
-				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam);}
+				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam, viejoueur, score);}
     }
 
   }
@@ -175,6 +176,8 @@ int main()
     pos_x = &posx;
     int* pos_y=NULL;
     pos_y = &posy;
+    int viejoueur =5;
+    int score =0;
 
 
     char tab[20][50]; ///crea tab
@@ -183,14 +186,14 @@ int main()
     position_alea(pos_x,pos_y);
     int tab_diam[10];
     position_alea_diam(tab_diam);
-    displaytab(tab, posx, posy, tab_diam);
+    displaytab(tab, posx, posy, tab_diam, viejoueur, score);
     printf("Pos x : %d et Pos y : %d\n", *pos_x, *pos_y);
 
     for(int i = 0; i<10; i=i+2)
     {
         printf("Pos diam : %d et %d \n", tab_diam[i], tab_diam[i+1]);
     }
-   deplacement(tab, posx, posy, tab_diam);
+   deplacement(tab, posx, posy, tab_diam, viejoueur, score);
 
 
     return 0;
