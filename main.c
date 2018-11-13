@@ -50,7 +50,7 @@ int position_alea_diam(int tab[10])
         tab[i] = rand()%15+2;
         tab[i+1] = rand()%45+2;
     }
-     return(tab);
+     return(tab[10]);
 }
 
 ///
@@ -92,7 +92,7 @@ void deplacement (char tab[][50], int pos_xpcman, int pos_ypcman, int tab_diam[]
   int c;
   if(d==0){while(!kbhit()){
 				printf("haut et %d et %d",pos_xpcman, pos_ypcman);
-				if((pos_xpcman<20)||(pos_xpcman>1)){pos_xpcman=pos_xpcman-1;}
+				if((pos_xpcman<20)&&(pos_xpcman>1)){pos_xpcman=pos_xpcman-1;}
                 sleep(900);
 				system("cls");
 				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam);}}
