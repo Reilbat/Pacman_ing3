@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1542120236 source:c:\users\alexa\documents\info ing3\cyrpien\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<conio.h>
+
