@@ -91,28 +91,53 @@ void deplacement (char tab[][50], int pos_xpcman, int pos_ypcman, int tab_diam[]
 {
   int d = rand()%4;
   int c;
+  //HAUT
   if(d==0){while(!kbhit()){
-				printf("haut et %d et %d",pos_xpcman, pos_ypcman);
-				if((pos_xpcman<20)&&(pos_xpcman>1)){pos_xpcman=pos_xpcman-1;}
-                sleep(900);
+				printf("haut");
+                if(pos_xpcman==1)
+                {
+                    pos_xpcman=20;
+                }
+                if((pos_xpcman=21)&&(pos_xpcman>0))
+				{pos_xpcman=pos_xpcman-1;}
+                sleep(500);
 				system("cls");
-				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam, viejoueur, score);}}
+				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam, viejoueur, score);}
+				}
+  //DROITE
   if(d==1){while(!kbhit()){
 				printf("droite");
-				pos_ypcman=pos_ypcman+1;
-				sleep(900);
+				if(pos_ypcman==50)
+                {
+                    pos_ypcman=1;
+                }
+                if((pos_xpcman<51)&&(pos_xpcman>0))
+				{pos_ypcman=pos_ypcman+1;}
+				sleep(500);
 				system("cls");
 				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam, viejoueur, score);}}
+  //BAS
   if(d==2){ while(!kbhit()){
 				printf("bas");
-				pos_xpcman=pos_xpcman+1;
-				sleep(900);
+				if(pos_xpcman==20)
+                {
+                    pos_xpcman=1;
+                }
+                if((pos_xpcman<21)&&(pos_xpcman>0))
+				{pos_xpcman=pos_xpcman+1;}
+				sleep(500);
 				system("cls");
 				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam, viejoueur, score);}}
-  if(d==3){ while(!kbhit()){
+  //GAUCHE
+  if(d==3){while(!kbhit()){
 				printf("gauche");
-				pos_ypcman=pos_ypcman-1;
-				sleep(900);
+                if(pos_ypcman==1)
+                {
+                    pos_ypcman=50;
+                }
+                if((pos_ypcman<51)&&(pos_ypcman>0))
+				{pos_ypcman=pos_ypcman-1;}
+				sleep(500);
 				system("cls");
 				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam, viejoueur, score);}}
 
@@ -124,7 +149,12 @@ printf("d = %d", d);
     if((c=getch())==72){///HAUT
                 while(!kbhit()){
 				printf("haut");
-				pos_xpcman=pos_xpcman-1;
+                if(pos_xpcman==1)
+                {
+                    pos_xpcman=20;
+                }
+                if((pos_xpcman=21)&&(pos_xpcman>0))
+				{pos_xpcman=pos_xpcman-1;}
                 sleep(500);
 				system("cls");
 				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam, viejoueur, score);}
@@ -134,7 +164,12 @@ printf("d = %d", d);
     else if(c==77){///DROITE
                 while(!kbhit()){
 				printf("droite");
-				pos_ypcman=pos_ypcman+1;
+				if(pos_ypcman==50)
+                {
+                    pos_ypcman=1;
+                }
+                if((pos_xpcman<51)&&(pos_xpcman>0))
+				{pos_ypcman=pos_ypcman+1;}
 				sleep(500);
 				system("cls");
 				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam, viejoueur, score);}
@@ -144,7 +179,12 @@ printf("d = %d", d);
     else if(c==80){///BAS
                 while(!kbhit()){
 				printf("bas");
-				pos_xpcman=pos_xpcman+1;
+				if(pos_xpcman==20)
+                {
+                    pos_xpcman=1;
+                }
+                if((pos_xpcman<21)&&(pos_xpcman>0))
+				{pos_xpcman=pos_xpcman+1;}
 				sleep(500);
 				system("cls");
 				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam, viejoueur, score);}
@@ -153,7 +193,12 @@ printf("d = %d", d);
      else if(c==75){///GAUCHE
                 while(!kbhit()){
 				printf("gauche");
-				pos_ypcman=pos_ypcman-1;
+                if(pos_ypcman==1)
+                {
+                    pos_ypcman=50;
+                }
+                if((pos_ypcman<51)&&(pos_ypcman>0))
+				{pos_ypcman=pos_ypcman-1;}
 				sleep(500);
 				system("cls");
 				displaytab(tab, pos_xpcman, pos_ypcman, tab_diam, viejoueur, score);}
@@ -162,6 +207,7 @@ printf("d = %d", d);
   }
 
 }
+
 
 
 int main()
