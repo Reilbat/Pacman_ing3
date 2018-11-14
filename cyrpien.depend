@@ -5,7 +5,15 @@
 	<time.h>
 	<conio.h>
 
+<<<<<<< HEAD
+1542154068 source:c:\users\alexa\documents\info ing3\cyrpien\pacman_ing3\main.c
+=======
+<<<<<<< HEAD
+1542124468 source:c:\users\cyprien\documents\github\pacman_ing3\main.c
+=======
 1542124219 source:c:\users\alexa\documents\info ing3\cyrpien\pacman_ing3\main.c
+>>>>>>> e1cf73da5473777cb577c8890274d9d8e68e17f9
+>>>>>>> b0fb3c1da86f05990594f79093e3479eb534e3de
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
